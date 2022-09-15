@@ -64,18 +64,6 @@ namespace PlatformService {
       get { return global::PlatformService.PlatformsReflection.Descriptor.Services[0]; }
     }
 
-    /// <summary>Base class for server-side implementations of GrpcPlatform</summary>
-    [grpc::BindServiceMethod(typeof(GrpcPlatform), "BindService")]
-    public abstract partial class GrpcPlatformBase
-    {
-      [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
-      public virtual global::System.Threading.Tasks.Task<global::PlatformService.PlatformResponse> GetAllPlatforms(global::PlatformService.GetAllRequest request, grpc::ServerCallContext context)
-      {
-        throw new grpc::RpcException(new grpc::Status(grpc::StatusCode.Unimplemented, ""));
-      }
-
-    }
-
     /// <summary>Client for GrpcPlatform</summary>
     public partial class GrpcPlatformClient : grpc::ClientBase<GrpcPlatformClient>
     {
@@ -129,25 +117,6 @@ namespace PlatformService {
       {
         return new GrpcPlatformClient(configuration);
       }
-    }
-
-    /// <summary>Creates service definition that can be registered with a server</summary>
-    /// <param name="serviceImpl">An object implementing the server-side handling logic.</param>
-    [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
-    public static grpc::ServerServiceDefinition BindService(GrpcPlatformBase serviceImpl)
-    {
-      return grpc::ServerServiceDefinition.CreateBuilder()
-          .AddMethod(__Method_GetAllPlatforms, serviceImpl.GetAllPlatforms).Build();
-    }
-
-    /// <summary>Register service method with a service binder with or without implementation. Useful when customizing the service binding logic.
-    /// Note: this method is part of an experimental API that can change or be removed without any prior notice.</summary>
-    /// <param name="serviceBinder">Service methods will be bound by calling <c>AddMethod</c> on this object.</param>
-    /// <param name="serviceImpl">An object implementing the server-side handling logic.</param>
-    [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
-    public static void BindService(grpc::ServiceBinderBase serviceBinder, GrpcPlatformBase serviceImpl)
-    {
-      serviceBinder.AddMethod(__Method_GetAllPlatforms, serviceImpl == null ? null : new grpc::UnaryServerMethod<global::PlatformService.GetAllRequest, global::PlatformService.PlatformResponse>(serviceImpl.GetAllPlatforms));
     }
 
   }
